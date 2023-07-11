@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HelloController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function() {
-    return "About";
-})->name('about');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/about/history', [AboutController::class, 'history']);
 
-Route::get('/hello/{text?}', function(string $text = "World") {
-    return "Hello {$text}";
-})->name('hello-world');
+Route::get('/hello/{name}', [HelloController::class, 'greet'])
+    ->where('name', '[a-zA-Z]+')
+    ->name('hello');
 
 Route::get('/regex/{id}', function(string $id) {
     return "Hello {$id}";

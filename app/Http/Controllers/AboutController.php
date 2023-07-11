@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class AboutController extends Controller
 {
     public function index() {
-        return "about.index";
+        return view('about.index');
     }
 
     public function history() {
-        return "about.history";
+        return view('about.history');
     }
 }

@@ -6,7 +6,13 @@ use Illuminate\Http\Request;
 
 class HelloController extends Controller
 {
-    public function greet(string $name) {
-        return "Hello $name";
+    public function greet(string $id) {
+        return view('about.hello', [
+            'id' => $id,
+            'info' => [
+                'name' => 'Non',
+                'address' => 'Bangkok'
+            ]
+        ]);
     }
 }

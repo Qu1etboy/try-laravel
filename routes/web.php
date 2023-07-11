@@ -23,13 +23,13 @@ Route::get('/', function () {
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/about/history', [AboutController::class, 'history']);
 
-Route::get('/hello/{name}', [HelloController::class, 'greet'])
-    ->where('name', '[a-zA-Z]+')
+Route::get('/hello/{id}', [HelloController::class, 'greet'])
+    ->where('name', '[0-9]+')
     ->name('hello');
 
-Route::get('/regex/{id}', function(string $id) {
-    return "Hello {$id}";
-})->where('id', '[0-9]+')->name('regex');
+// Route::get('/regex/{id}', function(string $id) {
+//     return "Hello {$id}";
+// })->where('id', '[0-9]+')->name('regex');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
